@@ -1,0 +1,337 @@
+@import "mixin";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Segoe UI";
+  // background: url("../images/w11.jpg");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.desktop {
+  background: url("../images/w11.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: animateColourTheme 10s ease-in infinite alternate;
+  min-height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.navbar {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  height: 5vh;
+  background: linear-gradient(
+    to right,
+    rgba(229, 239, 249, 0.8),
+    rgba(213, 220, 238, 0.8),
+    rgba(229, 239, 249, 0.8)
+  );
+  backdrop-filter: blur(1rem);
+  border-top: 0.2rem solid rgba(255, 255, 255, 0.3);
+  .middle-icons,
+  ul {
+    list-style-type: none;
+    @include flex;
+    li {
+      padding: 0 1.5rem;
+      img {
+        height: 2.5rem;
+      }
+    }
+    #start {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(240, 246, 251, 0.6)
+      );
+      border-radius: 0.2rem;
+      border-top: 0.1rem solid white;
+      border-bottom: 0.1rem inset white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      cursor: pointer;
+      img {
+        height: 2.6rem;
+        width: 2.6rem;
+      }
+    }
+    .search img {
+      height: 2rem;
+    }
+  }
+  .corner-area {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 0;
+    height: 100%;
+    align-items: center;
+    right: 0;
+    padding: 0 2rem;
+    .date-time {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      justify-content: center;
+      align-items: end;
+      font-size: 1.1rem;
+    }
+    i {
+      margin: 0 0.5rem;
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.9);
+    }
+    .search {
+      margin: 0 1.5rem;
+    }
+    i:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+#home.active {
+  overflow: hidden;
+  transform: scale(10%) translate(-50%, 250%) translate(-700%);
+}
+
+#home {
+  overflow: hidden;
+  position: absolute;
+  height: 80vh;
+  width: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  // bottom: 0;
+  // background-color: black;
+  background: linear-gradient(
+    to right,
+    rgba(229, 239, 249, 0.8),
+    rgba(213, 220, 238, 0.8),
+    rgba(229, 239, 249, 0.8)
+  );
+  backdrop-filter: blur(1rem);
+  border-radius: 1rem;
+}
+
+.search_bar {
+  @include flex;
+  justify-content: space-between;
+  margin: 3rem 2rem;
+  height: 3rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  border-bottom: 0.3rem solid rgba(17, 117, 247, 0.76);
+  ._search {
+    width: 95%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+  }
+  .search_logo {
+    height: 100%;
+    width: 5%;
+    @include flex;
+    padding: 0 2rem;
+  }
+  .search_logo i {
+    background-color: white;
+    transform: rotateY(180deg);
+    opacity: 0.8;
+  }
+}
+
+.bottom {
+  @include flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5rem;
+  padding: 0 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(229, 239, 249, 0.8),
+    rgba(213, 220, 238, 0.8),
+    rgba(229, 239, 249, 0.8)
+  );
+  backdrop-filter: blur(1rem);
+  .user-info {
+    @include flex;
+    p {
+      font-size: 1.2rem;
+    }
+    i {
+      padding: 0 2rem;
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+  i {
+    padding: 0 5rem;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  i:hover {
+    opacity: 1;
+  }
+}
+
+// styling container part
+.container {
+  ul {
+    position: absolute;
+    right: 0;
+    bottom: 55%;
+    @include flex;
+    flex-direction: column;
+    li {
+      padding: 0.5rem 0;
+      opacity: 0.3;
+    }
+    .main {
+      opacity: 1;
+      font-size: 1.5rem;
+      margin-right: -0.7rem;
+    }
+  }
+  margin: 0 4rem;
+  .pinned-section {
+    width: 100%;
+    // header section
+    .header {
+      @include flex;
+      justify-content: space-between;
+      margin: 0 2.5rem;
+      h3 {
+        font-size: 1.3rem;
+      }
+      .btn {
+        @include flex;
+        font-size: 1.2rem;
+        height: 2rem;
+        padding: 0.8rem 0.6rem;
+        i {
+          padding: 0 1rem;
+          opacity: 0.8;
+        }
+      }
+    }
+    .images {
+      margin: 1rem 0;
+      width: 100%;
+      @include flex;
+      flex-wrap: wrap;
+      gap: 3rem 6rem;
+    }
+  }
+
+  // recommendation section
+  .recommend {
+    width: 100%;
+    margin: 4rem 0;
+    .header {
+      @include flex;
+      justify-content: space-between;
+      margin: 0 2.5rem;
+      h3 {
+        font-size: 1.3rem;
+      }
+      .btn {
+        @include flex;
+        font-size: 1.2rem;
+        height: 2rem;
+        padding: 0.8rem 0.6rem;
+        i {
+          padding: 0 1rem;
+          opacity: 0.8;
+        }
+      }
+    }
+    .images {
+      margin: 2rem 2rem;
+      width: 100%;
+      @include flex;
+      justify-content: start;
+      flex-wrap: wrap;
+      gap: 2rem 24rem;
+      .content {
+        @include flex;
+        p {
+          margin: 0 2rem;
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
+.desktop {
+  width: 100%;
+  height: 100%;
+  .image-container {
+    position: absolute;
+    @include flex;
+    padding: 1rem 1rem;
+    justify-content: space-between;
+    align-items: start;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    height: 100%;
+    width: 10vw;
+    .images {
+      @include flex;
+      flex-direction: column;
+      img {
+        width: 5rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@keyframes animateColourTheme {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    filter: hue-rotate(60deg);
+  }
+  40% {
+    filter: hue-rotate(120deg);
+  }
+  60% {
+    filter: hue-rotate(180deg);
+  }
+  80% {
+    filter: hue-rotate(240deg);
+  }
+  100% {
+    filter: hue-rotate(300deg);
+  }
+}
