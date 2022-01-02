@@ -561,7 +561,6 @@ body {
 }
 
 .phone-message {
-  display: none;
   color: white;
   width: 100vw;
   height: 100vh;
@@ -570,6 +569,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  display: none;
 }
 
 .phone-message .message {
@@ -613,7 +613,9 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-  .desktop, .navbar, #home {
+  .desktop,
+  .navbar,
+  #home {
     display: none;
   }
   .phone-message {
